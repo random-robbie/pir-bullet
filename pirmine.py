@@ -4,14 +4,17 @@ import time
 import picamera
 import datetime
 from pushbullet import PushBullet
+import os
 
 apiKey = ""
 p = PushBullet(apiKey)
 devices = p.getDevices()
 
+def removeoldpics():
+	 os.remove(fileName)
 
 def getFileName():
-	return datetime.datetime.now().strftime("%Y-%m-%d_%H.%M.%S.jpg")
+	return datetime.datetime.now().strftime ("%Y-%m-%d_%H.%M.%S.jpg")
 
 
 	
@@ -37,6 +40,9 @@ while True:
 			cam.capture(fileName)
 			p.pushFile(devices[0]["iden"], "Intruder Alert!", open(fileName, "rb"))
 			cam.stop_preview()
+			time.sleep(5)
+			removeoldpics()
 		else:
 			cam.stop_preview()
+			
 			
