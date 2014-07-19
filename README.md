@@ -24,7 +24,7 @@ You need to put your pushbullet API key in to pirmine.py
 
 ```
 apiKey = "" and insert your pushbullet api key
-``
+```
 
 
 
