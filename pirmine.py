@@ -5,7 +5,7 @@ import picamera
 import datetime
 from pushbullet import PushBullet
 
-apiKey = "v1Fe91Xh8Ci8VlcSra2uK70e8k5EHHAtvPujuZUlwCNfo"
+apiKey = ""
 p = PushBullet(apiKey)
 devices = p.getDevices()
 
