@@ -38,7 +38,7 @@ while True:
 			fileName = getFileName()
 			cam.start_preview()
 			cam.capture(fileName)
-			p.pushFile(devices[0]["iden"], "Intruder Alert!", open(fileName, "rb"))
+			p.pushFile(devices[0]["iden"], "Intruder Alert!", "Image From PiCam", open(fileName, "rb"))
 			cam.stop_preview()
 			time.sleep(5)
 			removeoldpics()
