@@ -31,6 +31,21 @@ class PushBullet():
         r.raise_for_status()
         return r.json()
 
+    def addDevice(self, device_name):
+        """ Push a note
+            https://docs.pushbullet.com/v2/pushes
+
+            Arguments:
+            device_name -- Human readable name for device
+            type -- stream, thats all there is currently
+
+        """
+
+        data = {"nickname": device_name,
+                "type": "stream"
+                }
+        return self._request("POST", HOST + "/devices", data)
+
     def getDevices(self):
         """ Get devices
             https://docs.pushbullet.com/v2/devices
@@ -115,7 +130,7 @@ class PushBullet():
                 "url": url}
         return self._request("POST", HOST + "/pushes", data)
 
-    def pushFile(self, device_iden, file_name, file, file_type=None):
+    def pushFile(self, device_iden, file_name, body, file, file_type=None):
         """ Push a file
             https://docs.pushbullet.com/v2/pushes
             https://docs.pushbullet.com/v2/upload-request
@@ -152,7 +167,7 @@ class PushBullet():
                 "file_name": file_name,
                 "file_type": file_type,
                 "file_url": upload_request["file_url"],
-                "body": "hello"}
+                "body": body}
 
         return self._request("POST", HOST + "/pushes", data)
 
