@@ -13,6 +13,7 @@ sudo apt-get update
 sudo apt-get install python-setuptools python-picamera python-rpi.gpio -y
 sudo easy_install pip
 sudo pip install websocket-client requests python-magic
+sudo pip install https://github.com/Azelphur/pyPushBullet
 ```
 
 You will also need a pushbullet account from http://www.pushbullet.com
